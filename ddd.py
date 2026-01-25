@@ -305,7 +305,7 @@ while running:
                     handle_menu_action()
                     menu_active = False
             else:
-                if event.key == pygame.K_SPACE:
+                if event.key == pygame.K_TAB:
                     menu_active = True
 
     keys = pygame.key.get_pressed()
@@ -326,12 +326,12 @@ while running:
                 player.x += player_speed
 
         # cheking enter to the fight zone
-        if player.colliderect(battle_activation_zone):
+        if player.colliderect(battle_activation_zone) and keys[pygame.K_SPACE]:
             in_battle = True
             print("Battle started!")
 
         # cheking enter to the dialogue zone
-        if player.colliderect(dialog_zone):
+        if player.colliderect(dialog_zone) and keys[pygame.K_SPACE]:
             in_dialog = True
             print("Dialog started!")
 
